@@ -8,7 +8,7 @@ function calculateTip() {
     errorMessage.innerText = '';
 
     // Validate the amount: it should be a non-negative number
-    if (isNaN(amount) &&  amount < 0) {
+    if (isNaN(amount) ||  amount < 0) {
         errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
         document.getElementById('tipAmount').value = '';
         document.getElementById('totalAmount').value = '';
