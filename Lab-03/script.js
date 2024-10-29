@@ -18,13 +18,8 @@ function calculateTip() {
     console.log(amount);
     amount = parseFloat(amount);
     // Calculate the tip amount in USD
-    const tipAmountUSD = (amount * tipPercentage) / 100;
-    const totalAmountUSD = amount + tipAmountUSD;
-
-    // Initialize conversion rates
-    let conversionRate = 1; // Default for USD
-    let tipAmountConverted = tipAmountUSD;
-    let totalAmountConverted = totalAmountUSD;
+    const tipAmount = (amount * tipPercentage) / 100;
+    const totalAmount = amount + tipAmountUSD;
 
     if (currency === 'INR') {
         conversionRate = 84.07; // Conversion rate from USD to INR
@@ -33,12 +28,12 @@ function calculateTip() {
     }
 
     // Convert tip and total amounts to selected currency
-    tipAmountConverted = tipAmountUSD * conversionRate;
-    totalAmountConverted = totalAmountUSD * conversionRate;
+    tipAmount = tipAmount * conversionRate;
+    totalAmount = totalAmount * conversionRate;
 
-    // Update the displayed values
+    //display values
     document.getElementById('tipValue').innerText = tipPercentage;
-    document.getElementById('tipAmount').value = currency === 'USD' ? tipAmountUSD.toFixed(2) : tipAmountConverted.toFixed(2);
-    document.getElementById('totalAmount').value = currency === 'USD' ? totalAmountUSD.toFixed(2) : totalAmountConverted.toFixed(2);
-    document.getElementById('displayTipPercentage').value = tipPercentage; // Display the selected tip percentage
+    document.getElementById('tipAmount').value = tipAmount.toFixed(2) 
+    document.getElementById('totalAmount').value = totalAmount.toFixed(2) 
+    document.getElementById('displayTipPercentage').value = tipPercentage; 
 }
