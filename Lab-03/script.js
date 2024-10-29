@@ -1,5 +1,5 @@
 function calculateTip() {
-    const amount = parseFloat(document.getElementById('amount').value);
+    const amount = document.getElementById('amount').value;
     const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
     const currency = document.getElementById('currency').value;
     const errorMessage = document.getElementById('errorMessage');
@@ -8,14 +8,14 @@ function calculateTip() {
     errorMessage.innerText = '';
 
     // Validate the amount: it should be a non-negative number
-    if (isNaN(amount) ||  amount < 0) {
+    if (isNaN(amount)) {
         errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
         document.getElementById('tipAmount').value = '';
         document.getElementById('totalAmount').value = '';
         document.getElementById('displayTipPercentage').value = '';
         return;
     }
-
+    amount = parseFloat(amount);
     // Calculate the tip amount in USD
     const tipAmountUSD = (amount * tipPercentage) / 100;
     const totalAmountUSD = amount + tipAmountUSD;
