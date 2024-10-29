@@ -18,9 +18,10 @@ function calculateTip() {
     console.log(amount);
     amount = parseFloat(amount);
     // Calculate the tip amount in USD
-    const tipAmount = (amount * tipPercentage) / 100;
-    const totalAmount = amount + tipAmount;
+    let tipAmount = (amount * tipPercentage) / 100;
+    let totalAmount = amount + tipAmount;
 
+    let conversionRate =1;
     if (currency === 'INR') {
         conversionRate = 84.07; // Conversion rate from USD to INR
     } else if (currency === 'JPY') {
