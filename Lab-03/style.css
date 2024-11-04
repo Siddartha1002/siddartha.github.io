@@ -98,7 +98,7 @@ input[type="range"] {
     color: #007bff;
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
     body {
         padding: 5px;
     }
@@ -124,4 +124,13 @@ input[type="range"] {
         font-size: 0.9em;
         padding: 8px;
     }
-} */
+    input[type="text"], input[type="range"], select {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .conversion {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+}
