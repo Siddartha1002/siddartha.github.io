@@ -9,7 +9,7 @@ function calculateTip() {
 
     // Validate the amount: it should be a non-negative number
     if (isNaN(amount) ||  amount < 0) {
-        errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
+        errorMessage.innerText = 'Please enter a valid amount.';
         document.getElementById('tipAmount').value = '';
         document.getElementById('totalAmount').value = '';
         document.getElementById('displayTipPercentage').value = '';
@@ -21,11 +21,19 @@ function calculateTip() {
     let tipAmount = (amount * tipPercentage) / 100;
     let totalAmount = amount + tipAmount;
 
+    if (isNaN(tipAmount)){
+        errorMessage.innerText = 'Please enter a valid amount.';
+        document.getElementById('tipAmount').value = '';
+        document.getElementById('totalAmount').value = '';
+        document.getElementById('displayTipPercentage').value = '';
+        return;
+    }
+
     let conversionRate =1;
     if (currency === 'INR') {
-        conversionRate = 84.07; // Conversion rate from USD to INR
+        conversionRate = 84.07; 
     } else if (currency === 'JPY') {
-        conversionRate = 149.34; // Conversion rate from USD to JPY
+        conversionRate = 149.34; 
     }
 
     // Convert tip and total amounts to selected currency
